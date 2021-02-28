@@ -13,4 +13,16 @@ services:
     ports:
       - "27017:27017"
   #API
+  api_server:
+    build:
+      context: ./api_server
+      dockerfile: Dockerfile
+    image: martin76ec/animixapi
+    container_name: animix_api
+    volumes:
+      - "./api_server/api/:/usr/bin/www"
+    environment:
+      PORT: 9000
+    ports:
+      - "9000:9000"
   #INTERFACE
