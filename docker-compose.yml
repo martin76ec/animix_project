@@ -1,5 +1,16 @@
 version: "3.9"
 services:
   #NonSQL database
+  mongo:
+    build:
+      context: ./mongo
+      dockerfile: Dockerfile
+    image: martin76ec/animixmongo
+    container_name: animix_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
   #API
   #INTERFACE
