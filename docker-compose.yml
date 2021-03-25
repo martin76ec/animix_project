@@ -26,3 +26,15 @@ services:
     ports:
       - "9000:9000"
   #INTERFACE
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    image: martin76ec/animixwebapp
+    container_name: animix_webapp
+    volumes:
+      - "./webapp/app/:/usr/bin/www"
+    environment:
+      PORT: 9001
+    ports:
+      - "9001:9001"
